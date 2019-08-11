@@ -1,0 +1,137 @@
+"set runtimepath=~/vimrc/vim,~/vimrc/vim/after,\$VIMRUNTIME
+"source ~/vimrc/vimrc
+"helptags ~/vimrc/vim/doc
+
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+" Set this. Airline will handle the rest.
+
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/seoul256.vim'
+Plug 'w0rp/ale'
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+Plug 'delphinus/lightline-delphinus'
+Plug 'ryanoasis/vim-devicons'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'jalvesaq/Nvim-R'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
+Plug 'vim-airline/vim-airline'  " make statusline awesome
+Plug 'vim-airline/vim-airline-themes'  " themes for statusline 
+Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
+Plug 'davidhalter/jedi-vim'   " jedi for python
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
+Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
+Plug 'kien/ctrlp.vim'  " fuzzy search files
+Plug 'tweekmonster/impsort.vim'  " color and sort imports
+Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
+Plug 'tpope/vim-commentary'  "comment-out by gc
+Plug 'roxma/nvim-yarp'  " dependency of ncm2
+Plug 'ncm2/ncm2'  " awesome autocomplete plugin
+Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
+Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
+Plug 'ncm2/ncm2-path'  " filepath completion
+Plug 'terryma/vim-multiple-cursors'   " multiple cursors
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+" path to your python 
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
+
+set history=10000  " remember more commands and search history
+let g:airline#extensions#ale#enabled = 1
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+
+
+" setting for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+" set up for nrdtree
+map <C-n> :NERDTreeToggle<CR>   
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Switch window mappings
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+imap <C-w> <C-o><C-w>
+map - <C-W>-
+map + <C-W>+
+
+" highlight search and search while typing
+set hlsearch 
+set incsearch
+set cpoptions+=x  " stay at seach item when <esc>
+
+" remove bells (too annoying, i think this is default in neovim)
+set noerrorbells 
+set visualbell
+set t_vb=
+set relativenumber
+set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
+
+" allow cursor to continue to move after reaching the end of a line
+set whichwrap+=<,>,h,l,[,]
+
+" set up for ctrlp (ignore certain files)
+let g:ctrlp_custom_ignore = '\v\.(npy|jpg|png|gif|bmp|DS_Store|git|hg|svn|tmp|a|o|swp|pyc|so|dll)$'
+
+
+" easy block selection with mouse
+noremap <M-LeftMouse> <LeftMouse><Esc><C-V>
+noremap <M-LeftDrag> <LeftDrag>
+
+" global settings for multiple cursors
+let g:multi_cursor_exit_from_visual_mode=1
+let g:multi_cursor_exit_from_insert_mode=1
+
+" remove search highlight
+nnoremap <C-l> :nohl<CR><C-l>
+
+
+
+set nu
+set autoindent
+
+"pydiction 1.2 python auto complete
+filetype plugin on
+let g:pydiction_location = '~/.vim/tools/pydiction/complete-dict'
+"defalut g:pydiction_menu_height == 15
+"let g:pydiction_menu_height = 20 
+syntax enable
+filetype indent on
+map <F5> :!./make.sh
+
+let Tlist_Inc_Winwidth=0
+let Tlist_Use_Right_Window=1
+let Tlist_File_Fold_Auto_Close=1
+
+call pathogen#infect()
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_ignore="E501,E127,E128,E126,E124,W404"
+map <F4> o###CODEIMAGEo###ENDCODEIMAGE
