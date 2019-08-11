@@ -7,7 +7,9 @@ Here I am sharing the vimrc files for mac and ubuntu. To add all plugins, you fi
 Then you can download the vimrc file in this repos. and put it in the howm directory.
 
 >> wget -O .vimrc https://raw.githubusercontent.com/JakeJing/vimconfig/master/vimrc_ubuntu
+
 or
+
 >> curl -fLo .vimrc https://raw.githubusercontent.com/JakeJing/vimconfig/master/vimrc_mc
 
 Next, install the plug-ins by opening any file with vim. To install the plug-ins, you simply need to type in the vim console:
