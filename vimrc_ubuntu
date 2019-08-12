@@ -113,7 +113,8 @@ let g:multi_cursor_exit_from_insert_mode=1
 " remove search highlight
 nnoremap <C-l> :nohl<CR><C-l>
 
-
+" reset the background color
+set background=dark
 
 set nu
 set autoindent
