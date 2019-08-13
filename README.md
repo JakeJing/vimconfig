@@ -17,6 +17,7 @@ or
 Next, install the plug-ins by opening any file with vim. To install the plug-ins, you simply need to type in the vim console:
 
 > :PlugInstall
+
 > q
 
 If everything goes well, your vim will have a new look. Have fun!
