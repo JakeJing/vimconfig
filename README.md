@@ -12,7 +12,7 @@ Then you can download the vimrc file in this repos. and put it in the howm direc
 
 or
 
-> curl -fLo .vimrc https://raw.githubusercontent.com/JakeJing/vimconfig/master/vimrc_mc
+> curl -fLo .vimrc https://raw.githubusercontent.com/JakeJing/vimconfig/master/vimrc_mac
 
 Next, install the plug-ins by opening any file with vim. To install the plug-ins, you simply need to type in the vim console:
 
