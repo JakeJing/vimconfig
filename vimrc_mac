@@ -22,7 +22,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'jalvesaq/Nvim-R'
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
 Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline 
@@ -114,6 +114,9 @@ let g:multi_cursor_exit_from_insert_mode=1
 nnoremap <C-l> :nohl<CR><C-l>
 
 
+" automatically deletes all trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
 
 set nu
 set autoindent
@@ -134,4 +137,4 @@ let Tlist_File_Fold_Auto_Close=1
 call pathogen#infect()
 autocmd BufWritePost *.py call Flake8()
 let g:flake8_ignore="E501,E127,E128,E126,E124,W404"
-map <F4> o###CODEIMAGEo###ENDCODEIMAGE
+map <F4> o###CODEIMAGE###ENDCODEIMAGE
