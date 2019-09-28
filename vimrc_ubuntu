@@ -22,6 +22,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'jalvesaq/Nvim-R'
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/goyo.vim'
 
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
 Plug 'vim-airline/vim-airline'  " make statusline awesome
@@ -115,6 +116,9 @@ nnoremap <C-l> :nohl<CR><C-l>
 
 " reset the background color
 set background=dark
+
+" automatically deletes all trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 set nu
 set autoindent
