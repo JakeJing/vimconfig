@@ -25,7 +25,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
 Plug 'vim-airline/vim-airline'  " make statusline awesome
-Plug 'vim-airline/vim-airline-themes'  " themes for statusline 
+Plug 'vim-airline/vim-airline-themes'  " themes for statusline
 Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
 Plug 'davidhalter/jedi-vim'   " jedi for python
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
@@ -45,7 +45,7 @@ Plug 'terryma/vim-multiple-cursors'   " multiple cursors
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" path to your python 
+" path to your python
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 
@@ -58,17 +58,17 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 
 
 " setting for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 
 " set up for nrdtree
-map <C-n> :NERDTreeToggle<CR>   
+map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -84,12 +84,12 @@ map - <C-W>-
 map + <C-W>+
 
 " highlight search and search while typing
-set hlsearch 
+set hlsearch
 set incsearch
 set cpoptions+=x  " stay at seach item when <esc>
 
 " remove bells (too annoying, i think this is default in neovim)
-set noerrorbells 
+set noerrorbells
 set visualbell
 set t_vb=
 set relativenumber
@@ -125,7 +125,7 @@ set autoindent
 filetype plugin on
 let g:pydiction_location = '~/.vim/tools/pydiction/complete-dict'
 "defalut g:pydiction_menu_height == 15
-"let g:pydiction_menu_height = 20 
+"let g:pydiction_menu_height = 20
 syntax enable
 filetype indent on
 map <F5> :!./make.sh
