@@ -1,6 +1,6 @@
 ## vim configuration for mac and ubuntu
 
-Here I am sharing the vimrc files for mac and ubuntu. You can use the files to set up your vim easily.
+Here I am sharing the vimrc files for mac and ubuntu. You can use the template files to set up your vim easily.
 
 To add all plugins, you first need to install the vim-plug.
 
@@ -20,7 +20,8 @@ Next, install the plug-ins by opening any file with vim. To install the plug-ins
 
 > q
 
-If everything goes well, your vim will have a new look. Have fun!
+If everything goes well, your vim will have a new look. Have fun!!
+
 
 
 
