@@ -39,6 +39,7 @@ Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want t
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'terryma/vim-multiple-cursors'   " multiple cursors
+Plug 'eiginn/netrw' " netrw for displaying the tree structure of a folder
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -53,6 +54,15 @@ let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
+
+let g:netrw_banner       = 0  " removes the netrw banner
+let g:netrw_liststyle    = 3  " tree style listing
+let g:netrw_browse_split = 4  " see help on this one. lots of useful options
+let g:netrw_altv         = 1  " change from left splitting to right splitting
+let g:netrw_winsize      = 25 " initial size of new explore windows
+" By default netrw leaves unmodified buffers open. This autocommand
+" deletes them when they're hidden (using :q for example).
+autocmd FileType netrw setl bufhidden=delete
 
 " Switch window mappings
 " nmap <silent> <A-Up> :wincmd k<CR>
@@ -147,5 +157,27 @@ endfunction
 function! MyFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
+
+" and a handy-dandy function to toggle a Netrw sidebar
+" Toggle Vexplore with Ctrl-\
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+map <silent> <C-\> :call ToggleVExplorer()<CR>
 
 
