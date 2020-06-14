@@ -63,7 +63,7 @@ The new vim version support for a terminal mode, and you can initiate the termin
 
 *(4) check the folder structures (**netrw** plugin needed)*
 
-You can easily open and close the current folder structure by the shortcut (ctrl + \).
+You can easily open and close the current folder structure by the shortcut (ctrl + \\).
 
 *(5) auto Tab completion*
 
