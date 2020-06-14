@@ -1,9 +1,17 @@
-## vim configuration for mac and ubuntu
+## Vim Configuration and Useful Tricks
+
+### 1. vim configuration for mac and ubuntu
 
 
 Here I am sharing the vimrc files for mac and ubuntu. You can use the template files (mac or ubuntu) to set up your vim easily.
 
 To add all plugins, you first need to install the vim-plug.
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+
 
 > curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
