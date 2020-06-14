@@ -181,3 +181,7 @@ function! ToggleVExplorer()
 endfunction
 map <silent> <C-\> :call ToggleVExplorer()<CR>
 
+" key mapping to automatically complete filename
+imap <C-f> <C-f><C-x>
+
+
