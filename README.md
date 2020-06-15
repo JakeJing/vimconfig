@@ -68,3 +68,5 @@ You can easily open and close the current folder structure by the shortcut (ctrl
 *(5) auto Tab completion*
 
 In the insert mode, vim also supports for autofile completion. You can type the path of a file and complete the path by `Tab`.
+
+(6) delete a word and repeate the deletions via (*d + w + .*). 

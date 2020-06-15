@@ -204,3 +204,8 @@ endfunction
 
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
+" key mapping to open a terminal
+noremap <C-s> :botright vertical terminal <CR>
+
+
+
