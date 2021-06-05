@@ -101,11 +101,11 @@ imap <C-a> <esc>0i
 nnoremap <C-e> $
 nnoremap <C-a> 0
 
-" move farward or backward one word
-imap <A-Left> <esc>b
-imap <A-Right> <esc>e
-nnoremap <A-Left> b
-nnoremap <A-Right> e
+" move farward or backward one word (may cause problems in brackets in python)
+" imap <A-Left> <esc>b
+" imap <A-Right> <esc>e
+" nnoremap <A-Left> b
+" nnoremap <A-Right> e
 
 " easy block selection with mouse
 noremap <M-LeftMouse> <LeftMouse><Esc><C-V>
