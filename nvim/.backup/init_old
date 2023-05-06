@@ -4,9 +4,10 @@
 
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
-" cursor highlighting
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+" set guicursor=n-v-i-sm:block,c-ci-ve:ver20,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+
+" guarantee all aliases in fish shell by setting shell to interactive for the current session
+set shellcmdflag=-ic
 
 " Plugins starts
 call plug#begin('~/.vim/plugged')
@@ -28,15 +29,19 @@ Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'terryma/vim-multiple-cursors'   " multiple cursors
 Plug 'eiginn/netrw' " netrw for displaying the tree structure of a folder
 Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
+Plug 'nvim-lua/plenary.nvim' " two deps for telescope
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 " List ends here. Plugins become vi
 call plug#end()
+
+
+
 
 " remember more commands and search history
 set history=10000
 " split the window right
 set splitright
-
 
 let g:airline#extensions#ale#enabled = 1
 let g:lightline#ale#indicator_checking = "\uf110"
@@ -124,6 +129,12 @@ let g:lightline = {
 """"""""" key mapping """""""
 """""""""""""""""""""""""""""
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " remap to resize the splitted window
 nmap = <C-W>>
 nmap - <C-W><
@@ -135,17 +146,14 @@ noremap <C-s> :vertical botright terminal <CR>
 noremap <leader>v :vsplit<CR><C-w>l
 
 " move the beginning or end for Insert and Replace modes
-nnoremap <C-e> <esc>A
-nnoremap <C-a> <esc>I
-imap <C-e> <esc>A
-imap <C-a> <esc>I
+inoremap <C-e> <esc>$a
+inoremap <C-a> <esc>0i
 
 " move farward or backward one word
-" imap <A-Left> <esc>b
-" imap <A-Right> <esc>e
-" nnoremap <A-Left> b
-" nnoremap <A-Right> e
-
+imap <A-Left> <esc>b
+imap <A-Right> <esc>e
+nnoremap <A-Left> b
+nnoremap <A-Right> e
 
 " delete one word forward <C-W> as the default
 " noremap! <C-BS> <C-w>
@@ -219,7 +227,7 @@ function! ToggleVExplorer()
 		let t:expl_buf_num = bufnr("%")
 	endif
 endfunction
-map <silent> <C-\> :call ToggleVExplorer()<CR>
+" map <silent> <C-\> :call ToggleVExplorer()<CR>
 " key mapping to automatically complete filename
 " imap <C-f> <C-f><C-x>
 "umap key F3 for autoformat and autoformat upon saving
@@ -307,5 +315,5 @@ function! CopyMultiMatches()
 	let @+ .= matchstr(text, @/) . "\n"
 endfunction
 
-map <silent> <C-\> :call ToggleVExplorer()<CR>
+" map <silent> <C-\> :call ToggleVExplorer()<CR>
 
