@@ -74,6 +74,16 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["baleia.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/baleia.nvim",
+    url = "https://github.com/m00qek/baleia.nvim"
+  },
+  ["browser-bookmarks.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/browser-bookmarks.nvim",
+    url = "https://github.com/dhruvmanila/browser-bookmarks.nvim"
+  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
@@ -84,15 +94,20 @@ _G.packer_plugins = {
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/fish.vim",
     url = "https://github.com/nickeb96/fish.vim"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/goyo.vim",
     url = "https://github.com/junegunn/goyo.vim"
   },
-  ["i3-vim-syntax"] = {
+  ["lazygit.nvim"] = {
     loaded = true,
-    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/i3-vim-syntax",
-    url = "https://github.com/PotatoesMaster/i3-vim-syntax"
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["limelight.vim"] = {
     loaded = true,
@@ -114,6 +129,17 @@ _G.packer_plugins = {
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/nvim-base16",
     url = "https://github.com/RRethy/nvim-base16"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-neoclip.lua"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fneoclip\frequire\0" },
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
+    url = "https://github.com/AckslD/nvim-neoclip.lua"
+  },
   ["nvim-palenight.lua"] = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/nvim-palenight.lua",
@@ -123,11 +149,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  orgmode = {
-    loaded = true,
-    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/orgmode",
-    url = "https://github.com/nvim-orgmode/orgmode"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -139,6 +160,16 @@ _G.packer_plugins = {
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   ["python-syntax"] = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/python-syntax",
@@ -149,18 +180,53 @@ _G.packer_plugins = {
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/sxhkd-vim",
     url = "https://github.com/kovetskiy/sxhkd-vim"
   },
+  ["telescope-command-palette.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-command-palette.nvim",
+    url = "https://github.com/LinArcX/telescope-command-palette.nvim"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-github.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-github.nvim",
+    url = "https://github.com/nvim-telescope/telescope-github.nvim"
+  },
+  ["telescope-repo.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-repo.nvim",
+    url = "https://github.com/cljoly/telescope-repo.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
+  ["telescope-vim-bookmarks.nvim"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-vim-bookmarks.nvim",
+    url = "https://github.com/tom-anders/telescope-vim-bookmarks.nvim"
+  },
+  ["telescope-zoxide"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope-zoxide",
+    url = "https://github.com/jvgrootveld/telescope-zoxide"
+  },
   ["telescope.nvim"] = {
+    config = { "\27LJ\2\nO\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\rdefaults\1\0\0\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n~\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\2\14direction\nfloat\17open_mapping\n<C-s>\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -169,6 +235,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/vifm.vim",
     url = "https://github.com/vifm/vifm.vim"
+  },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/Users/jakejing/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
   ["vim-commentary"] = {
     loaded = true,
@@ -228,10 +299,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n~\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\2\14direction\nfloat\17open_mapping\n<C-s>\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
+time([[Config for nvim-neoclip.lua]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\nO\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\rdefaults\1\0\0\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

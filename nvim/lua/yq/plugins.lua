@@ -1,11 +1,8 @@
-
 local status, packer = pcall(require, "packer")
 if not status then
 	print("Packer is not installed")
 	return
 end
-
-
 
 -- Reloads Neovim after whenever you save plugins.lua
 vim.cmd([[
@@ -16,7 +13,6 @@ vim.cmd([[
 ]])
 
 
-
 packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -25,34 +21,65 @@ packer.startup(function(use)
 	use("glepnir/dashboard-nvim")
 
 	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim" } },
+    use {'dhruvmanila/browser-bookmarks.nvim',  tag = '*',}
+    use('jvgrootveld/telescope-zoxide')
+    use("nvim-telescope/telescope-github.nvim")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
+    use {
+      "AckslD/nvim-neoclip.lua",
+      requires = {
+        -- you'll need at least one of these
+        -- {'nvim-telescope/telescope.nvim'},
+        -- {'ibhagwan/fzf-lua'},
+      },
+      config = function()
+        require('neoclip').setup()
+      end,
+    }
+    use('cljoly/telescope-repo.nvim')
+    use("kdheepak/lazygit.nvim")
+	use({"nvim-telescope/telescope.nvim",
+        config = function()
+          require('telescope').setup{
+            defaults = {
+         },
+      }
+        -- require("telescope").load_extension("lazygit")
+        end,
 	})
+    use{'tom-anders/telescope-vim-bookmarks.nvim'}
+    use("MattesGroeger/vim-bookmarks")
+    use {'nvim-telescope/telescope-ui-select.nvim' }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use("nvim-telescope/telescope-file-browser.nvim")
+    use { "LinArcX/telescope-command-palette.nvim" }
 
 	use("nvim-treesitter/nvim-treesitter") -- Treesitter Syntax Highlighting
+    use('neovim/nvim-lspconfig')
+    use('MunifTanjim/prettier.nvim')
+    -- FZF
+	use({
+		"ibhagwan/fzf-lua",
+		-- config = function()
+		-- 	require("yq.config.fzf-lua")
+		-- end
+	})
 
-	-- Productivity
+    -- Terminal
+    use({"akinsho/toggleterm.nvim", tag = '*'}) -- toggle terminal
+    use({ 'm00qek/baleia.nvim', tag = 'v1.3.0' })
+
+    -- Productivity
 	use("vimwiki/vimwiki")
 	use("jreybert/vimagit")
-	use("nvim-orgmode/orgmode")
     use("tpope/vim-commentary") -- gc comment
 	use("folke/which-key.nvim") -- Which Key
 	use("nvim-lualine/lualine.nvim") -- A better statusline
-    -- use('caenrique/buffer-term.nvim') -- removed since tiggleterm is much better
-    use({"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup{
-            open_mapping = [[<C-s>]], -- you can open and toggle terminal via ctrl+\
-            direction = 'float',
-            shell = vim.o.shell
-
-        }
-        end}) -- toggle terminal
     use("prettier/vim-prettier")
-
-	-- File management --
+    
+	
+    -- File management --
 	use("vifm/vifm.vim")
 	use("scrooloose/nerdtree")
 	use("tiagofumo/vim-nerdtree-syntax-highlight")
@@ -62,7 +89,6 @@ packer.startup(function(use)
 	use("tpope/vim-surround")
 
 	-- Syntax Highlighting and Colors --
-	use("PotatoesMaster/i3-vim-syntax")
 	use("kovetskiy/sxhkd-vim")
 	use("vim-python/python-syntax")
 	use("ap/vim-css-color")

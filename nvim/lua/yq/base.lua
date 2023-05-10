@@ -28,14 +28,20 @@ if vim.g.neovide then
     vim.g.neovide_cursor_vfx_mode = "railgun"
 end
 
--- cmd('syntax on')
--- vim.api.nvim_command('filetype plugin indent on')
+
+-- change the vertical bars between splitted panels
+opt.fillchars = {
+    vert = "▕", -- alternatives │
+    fold = " ",
+    eob = " ", -- suppress ~ at EndOfBuffer
+    diff = "╱", -- alternatives = ⣿ ░ ─
+    msgsep = "‾",
+    foldopen = "▾",
+    foldsep = "│",
+    foldclose = "▸",
+  }
 
 o.termguicolors = true
--- o.background = 'dark'
-
--- Do not save when switching buffers
--- o.hidden = true
 
 -- Decrease update time
 o.timeoutlen = 500
@@ -79,9 +85,6 @@ o.backup = false
 o.writebackup = false
 o.undofile = true
 o.swapfile = false
--- o.backupdir = '/tmp/'
--- o.directory = '/tmp/'
--- o.undodir = '/tmp/'
 
 -- Remember 50 items in commandline history
 o.history = 50
@@ -90,21 +93,11 @@ o.history = 50
 o.splitright = true
 o.splitbelow = true
 
--- Preserve view while jumping
--- BUG This option causes an error!
--- o.jumpoptions = 'view'
-
--- BUG: this won't update the search count after pressing `n` or `N`
--- When running macros and regexes on a large file, lazy redraw tells neovim/vim not to draw the screen
--- o.lazyredraw = true
-
--- Better folds (don't fold by default)
--- o.foldmethod = 'indent'
--- o.foldlevelstart = 99
--- o.foldnestmax = 3
--- o.foldminlines = 1
---
+-- follow the mouse
 opt.mouse = "a"
+
+-- vim session options
+opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Map <leader> to space
 g.mapleader = " "
